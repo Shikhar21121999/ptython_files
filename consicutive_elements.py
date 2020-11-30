@@ -12,7 +12,7 @@ def func(inp):
 
 if __name__ == '__main__':
     test = int(input())
-    print(test)
+    # print(test)
     while(test > 0):
         a = input()
         func(a)

@@ -6,13 +6,13 @@ def find_ind(arr, x, k):
 
     # printing inputs
 
-    print(arr)
-    print(x)
-    print(k)
+    # print(arr)
+    # print(x)
+    # print(k)
     ans_found = False
     curr_ind = 0
     while(curr_ind < len(arr)):
-        print(curr_ind, arr[curr_ind])
+        # print(curr_ind, arr[curr_ind])
         # search the element at curr inedex
         if(arr[curr_ind] == x):
             print(curr_ind)
