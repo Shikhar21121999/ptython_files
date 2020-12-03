@@ -27,5 +27,5 @@ def findSubArrays(arr, n):
 # main function
 if __name__ == '__main__':
     lis = list(map(int, input().split()))
-    print(lis)
+    # print(lis)
     print(findSubArrays(lis, len(lis)))
