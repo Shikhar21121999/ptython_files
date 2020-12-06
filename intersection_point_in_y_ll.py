@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class Node():
     def __init__(self, val=-9999999999999999999):
         self.data = val
@@ -64,16 +67,20 @@ def gv_intersection(first, second):
 
 def intersetPoint(head1, head2):
 
+    # make a default dict to store the addresses of nodes
+    hsh_dict = defaultdict(int)
+
     # treaverse the first linked list and put all as -ve
     curr1 = head1
     while(curr1):
-        curr1.data = -1*curr1.data
+        hsh_dict[curr1] += 1
+        # curr1.data = -1*curr1.data
         curr1 = curr1.next
 
     # now traverse the second linked list and look for the node that has negative data value
     curr2 = head2
     while(curr2):
-        if(curr2.data < 0):
+        if(hsh_dict[curr2] == 1):
             # curr2 is the intersection point
             return curr2.data
         curr2 = curr2.next

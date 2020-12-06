@@ -41,7 +41,7 @@ def gv_intersection(first, second):
     while(s_c):
         if(hs_lis[s_c.data] == 1):
             hs_lis[s_c.data] = 2
-            print(s_c.data, end=" ")
+            # print(s_c.data, end=" ")
         s_c = s_c.next
     # print()
     # print(hs_lis[3])
@@ -49,6 +49,7 @@ def gv_intersection(first, second):
     curr_ans = ans_head
     f_c = first
     while(f_c):
+        # print(f_c.data, hs_lis[f_c.data])
         if(hs_lis[f_c.data] == 2):
             # print("found commoan ", f_c.data)
             if(ans_head.data == -45):
@@ -58,20 +59,24 @@ def gv_intersection(first, second):
                 curr_ans.next = new_node
                 curr_ans = new_node
         f_c = f_c.next
-    print_linked_list(ans_head)
-    return curr_ans
+    # print_linked_list(ans_head)
+    return ans_head
 
 
 fir_head = Node(1)
 tem = Node(2)
 tem1 = Node(3)
+tem2 = Node(4)
+tem3 = Node(5)
 fir_head.next = tem
 tem.next = tem1
+tem1.next = tem2
+tem2.next = tem3
 print_linked_list(fir_head)
 
-sec_head = Node(3)
-stem = Node(4)
-stem1 = Node(5)
+sec_head = Node(8)
+stem = Node(6)
+stem1 = Node(7)
 sec_head.next = stem
 stem.next = stem1
 print_linked_list(sec_head)

@@ -85,12 +85,8 @@ def addOne(head):
             # then we add a new node with value equal to 1
             new_node = Node(1)
             curr.next = new_node
-    print("after adding and last reversing the linked list")
-    print_linked_list(p)
-    q = reverse(p)
-    print("final linked list")
-    print_linked_list(q)
-    return q
+    # now we reverse the linked list
+    return reverse(p)
 
 
 def reverse(head):

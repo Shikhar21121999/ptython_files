@@ -43,11 +43,23 @@ def print_linked_list(head):
     print("linked list finished")
 
 
+def return_beginning_of_loop(head):
+    node_map = defaultdict(int)
+    curr = head
+    prev = head
+    # print("trying to delete node")
+    while(curr and node_map[curr] < 1):
+        prev = curr
+        node_map[curr] = 1
+        curr = curr.next
+    return curr
+
+
 def detect_and_Delete(head):
     node_map = defaultdict(int)
     curr = head
     prev = head
-    print("trying to delete node")
+    # print("trying to delete node")
     while(curr and node_map[curr] < 1):
         prev = curr
         node_map[curr] = 1
@@ -55,7 +67,7 @@ def detect_and_Delete(head):
 
     # if curr is not none then it means curr is the starting node or the first repeated node in the linked list
     if(curr is not None):
-        print("loop exist between : ", prev.data, " and ", curr.data)
+        # print("loop exist between : ", prev.data, " and ", curr.data)
         # hence to remove the loop
         # we point prev to None
         prev.next = None
