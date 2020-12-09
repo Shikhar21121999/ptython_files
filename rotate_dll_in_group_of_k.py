@@ -59,6 +59,8 @@ def print_dll(head):
     print("None", end=" ")
     print()
 
+# fucnction to rotate dll in groups of k and get the new merged dll
+
 
 def rotate_dll_in_groups_of_k(head, k):
     ans_dll = None
@@ -69,15 +71,18 @@ def rotate_dll_in_groups_of_k(head, k):
 
     first_group = True
 
-    while(n1thnode is not None):
+    while(curr_head is not None):
 
         # we first sperrate the current group of dll
         # from the rest of the bigger dll
         # thereby making a smaller dll
 
         curr_head.prev = None
+        if prev_node is not None:
+            prev_node.next = None
         nth_node.next = None
-        n1thnode.prev = None
+        if n1thnode is not None:
+            n1thnode.prev = None
 
         # storin pointers to some node that will be used later
         # after reversal curr_head becomes the last node of the broken dll
@@ -91,12 +96,13 @@ def rotate_dll_in_groups_of_k(head, k):
         if prev_node is not None:
             prev_node.next = new_head
         last_node.next = n1thnode
-        if nth_node is not None:
-            nth_node.prev = last_node
+        if n1thnode is not None:
+            n1thnode.prev = last_node
 
         # we also have to ensure that when we rotate first group
         # we update the head node of the dll
         if first_group:
+            first_group = False
             ans_dll = new_head
 
         # here print the dll to see how it looks and if it works as it should
@@ -104,8 +110,12 @@ def rotate_dll_in_groups_of_k(head, k):
         # update pointers to make them ready for next iteration
         prev_node = last_node
         curr_head = n1thnode
+        if(curr_head == None):
+            break
         nth_node = nth_node_or_end(curr_head, k)
         n1thnode = nth_node.next
+
+    # ensure that last group is also taken
 
     return ans_dll
 
@@ -121,6 +131,7 @@ if __name__ == "__main__":
     tem4 = DllNode('f', tem3)
     tem5 = DllNode('g', tem4)
     tem6 = DllNode('h', tem5)
+    tem7 = DllNode('i', tem6)
     # assigning next values to them
     dll.next = tem
     tem.next = tem1
@@ -129,6 +140,13 @@ if __name__ == "__main__":
     tem3.next = tem4
     tem4.next = tem5
     tem5.next = tem6
+    # tem6.next = tem7
+
+    dll1 = DllNode('p')
+    dll2 = DllNode('q', dll1)
+    dll3 = DllNode('r', dll2)
+    dll1.next = dll2
+    dll2.next = dll3
 
     print("befor n node rotation")
     print_dll(dll)
