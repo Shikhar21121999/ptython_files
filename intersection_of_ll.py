@@ -63,23 +63,25 @@ def gv_intersection(first, second):
     return ans_head
 
 
-fir_head = Node(1)
-tem = Node(2)
-tem1 = Node(3)
-tem2 = Node(4)
-tem3 = Node(5)
-fir_head.next = tem
-tem.next = tem1
-tem1.next = tem2
-tem2.next = tem3
-print_linked_list(fir_head)
+if __name__ == '__main__':
 
-sec_head = Node(8)
-stem = Node(6)
-stem1 = Node(7)
-sec_head.next = stem
-stem.next = stem1
-print_linked_list(sec_head)
+    fir_head = Node(1)
+    tem = Node(2)
+    tem1 = Node(3)
+    tem2 = Node(4)
+    tem3 = Node(5)
+    fir_head.next = tem
+    tem.next = tem1
+    tem1.next = tem2
+    tem2.next = tem3
+    print_linked_list(fir_head)
 
-p = gv_intersection(fir_head, sec_head)
-print_linked_list(p)
+    sec_head = Node(8)
+    stem = Node(6)
+    stem1 = Node(7)
+    sec_head.next = stem
+    stem.next = stem1
+    print_linked_list(sec_head)
+
+    p = gv_intersection(fir_head, sec_head)
+    print_linked_list(p)

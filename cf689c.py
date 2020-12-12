@@ -35,7 +35,7 @@ def solve():
         # curr_r is greater or equal to min_reqd
 
         if(curr_r >= min_reqd):
-            ans_probab = ans_probab*curr_p+ans_probab *
+            ans_probab = ans_probab*curr_p+ans_probab * \
                 (1-curr_p)+(1-ans_probab)*curr_p
         k -= 1
 

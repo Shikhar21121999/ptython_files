@@ -1,8 +1,11 @@
-# optional parameters
+# check how to achieve results simmilar to pass by refrence in python
 
-def func1(a=1, b):
-    # default value is put as 1 for a
-    print(b*a)
+def pass_by_refrence(arr):
+
+    # here arr is an array
+    arr.append(5)
 
 
-print(func1(4, "asdf"))
+arr = [75]
+pass_by_refrence(arr)
+print(arr)
