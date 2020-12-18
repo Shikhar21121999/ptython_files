@@ -191,25 +191,3 @@ def compute(head):
 
     return head
 
-
-# main function
-if __name__ == '__main__':
-
-    fir_head = Node(12)
-    tem = Node(15)
-    tem1 = Node(10)
-    tem2 = Node(11)
-    tem3 = Node(5)
-    tem4 = Node(6)
-    tem5 = Node(2)
-    tem6 = Node(3)
-    fir_head.next = tem
-    tem.next = tem1
-    tem1.next = tem2
-    tem2.next = tem3
-    tem3.next = tem4
-    tem4.next = tem5
-    tem5.next = tem6
-    print_linked_list(fir_head)
-    p = compute(fir_head)
-    print_linked_list(p)
