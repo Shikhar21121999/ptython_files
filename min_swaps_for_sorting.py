@@ -1,45 +1,37 @@
+'''
+This file contains various functions
+to calculate min number of swaps required
+for sorting an array
+'''
 
-from collections import defaultdict
 
+def min_swap_1(arr):
+    '''
+    Straight forward approach
+    we iterate from forward to backward
+    and swap elements that are not in place greedily
+    and count the swaps done
+    time complexity O(N*N)
+    space complexity O(N)
+    '''
 
-def min_swaps_reqd(a, n):
+    # make a sorted copy of the array
+    arr_cpy = arr[0:]
+    arr_cpy.sort()
 
-    # make a copy of the list a and sort it
-    p = a[0:]
-    p.sort()
+    min_swap_cnter = 0
+    for i in range(0, len(arr)):
 
-    # make a default dict and initialize it to -1
-    # in this we store pair of a[i] to p[i] if they are not equal
+        # check if not in right place
+        if arr[i] != arr_cpy[i]:
+            min_swap_cnter += 1
+            index = arr.index(arr_cpy[i])
+            arr[i], arr[index] = arr[index], arr[i]
 
-    hash_map = defaultdict(lambda: -1)
-    print(a)
-    print(p)
-
-    pair_cnt, total_diff, swap_cnt = 0, 0, 0
-    for i in range(0, n):
-        # print(a[i], p[i])
-        if (a[i] != p[i]):
-            total_diff += 1
-
-            if(hash_map[a[i]] == -1):
-                # there does not exist a pair which is reverse with which current can be swapped
-                # we add this to the hash map in reverse for finding the reverse in future
-
-                hash_map[p[i]] = a[i]
-
-            elif(hash_map[a[i]] == p[i]):
-                pair_cnt += 1
-    print(total_diff, pair_cnt)
-    swap_cnt = pair_cnt
-    total_diff -= 2*pair_cnt
-    if(total_diff > 2):
-        swap_cnt += total_diff-1
-
-    return swap_cnt
+    return min_swap_cnter
 
 
 # main function
 if __name__ == '__main__':
-    arr = list(map(int, input().split()))
-    print(arr)
-    print(min_swaps_reqd(arr, len(arr)))
+    arr = [2, 4, 5, 1, 3]
+    print(min_swap_1(arr))
