@@ -47,11 +47,10 @@ def get_path(root, path, n1):
     return False
 
 
-def lca(root, n1, n2):
+def min_distance(root, n1, n2):
     '''
-    Utility function to find the lowest commone ancestor 
-    of n1 and n2 in the given tree
-    it should return lca node as output
+    Utility function to find min_distance
+    btween n1 and n2 in the given tree
     '''
 
     # base case
@@ -65,6 +64,7 @@ def lca(root, n1, n2):
     n_1 = get_path(root, n1_path, n1)
     n_2 = get_path(root, n2_path, n2)
 
+    min_distance=-1
     # if both are found
     if n_1 and n_2:
 
@@ -75,7 +75,8 @@ def lca(root, n1, n2):
                 break
             i += 1
 
-    return n1_path[i-1]
+        min_distance=len(n1_path)+len(n2_path)-2*(i+1)
+    return min_distance
 
 
 if __name__ == '__main__':
