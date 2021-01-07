@@ -35,7 +35,33 @@ def Inorder_iterative(root):
             node = node.right
     return ans
 
+def count_sum_x(root1,root2,x):
+    '''
+    Utility function to count no of pairs
+    with sum equal to x in bst 
+    '''
 
+    # get the inorder traversals of both the trees
+    lis1=Inorder_iterative(root1)
+    lis2=Inorder_iterative(root2)
+
+    # count no of paris with sum equal to k in these two lists
+    i=0
+    j=len(lis2)-1
+    ans=0
+
+    while(i<len(lis1) and j>=0):
+        sum_ele=lis1[i]+lis2[j]
+        if(sum_ele==x):
+            ans+=1
+
+        elif(sum_ele<x):
+            i+=1
+
+        else:
+            j+=1
+    
+    return ans
 
 def kth_smallest(root, k):
     '''
