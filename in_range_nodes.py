@@ -54,6 +54,6 @@ def getCount(root, low, high):
         else:
             node = s.pop()
             if node.data >= low and node.data <= high:
-                count += =1
+                cnt += 1
             node = node.right
     return cnt
